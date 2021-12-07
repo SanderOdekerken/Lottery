@@ -5,7 +5,7 @@ const { abi, bytecode } = require("./compile");
 
 const provider = new HDWalletProvider(
   process.env.MNEMONIC,
-  "https://rinkeby.infura.io/v3/23d9e56d36894372931ac6bc00ef755e"
+  process.env.INFURA
 );
 const web3 = new Web3(provider);
 
