@@ -2,14 +2,14 @@ const path = require("path");
 const fs = require("fs");
 const solc = require("solc");
 
-const inboxPath = path.resolve(__dirname, "contracts", "Inbox.sol");
-const source = fs.readFileSync(inboxPath, "utf8");
+const lotteryPath = path.resolve(__dirname, "contracts", "Lottery.sol");
+const source = fs.readFileSync(lotteryPath, "utf8");
 
 function createConfiguration() {
   return {
     language: "Solidity",
     sources: {
-      "Inbox.sol": {
+      "Lottery.sol": {
         content: source,
       },
     },
@@ -33,10 +33,10 @@ function compileSources(config) {
 const config = createConfiguration();
 const output = compileSources(config);
 
-for (var contractName in output.contracts["Inbox.sol"]) {
+for (var contractName in output.contracts["Lottery.sol"]) {
     const compileValue = {
-        bytecode: output.contracts["Inbox.sol"][contractName].evm.bytecode.object,
-        abi: output.contracts["Inbox.sol"][contractName].abi,
+        bytecode: output.contracts["Lottery.sol"][contractName].evm.bytecode.object,
+        abi: output.contracts["Lottery.sol"][contractName].abi,
     }
     module.exports = compileValue;
 }
